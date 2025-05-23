@@ -27,8 +27,6 @@ jobs:
           static-secrets: |
             - name: "/MyFirstSecret"
               output-name: "my_first_secret"
-            # - name: "/k8s/test-secret"
-            #   output-name: "my_second_secret"
       - name: Fetch dynamic secrets from Akeyless
         id: fetch-dynamic-secrets
         uses: akeyless-community/akeyless-github-action@v1.1.2
@@ -47,6 +45,6 @@ jobs:
             echo "Environment Variables"
             echo "my_first_secret: ${{ env.my_first_secret }}"
 
-            echo "dynamic secret: ${{ steps.fetch-dynamic-secrets.outputs.mysql-dynamic-secret }}
+            echo "dynamic secret: ${{ steps.fetch-dynamic-secrets.outputs.mysql-dynamic-secret }}"
             # echo "my_second_secret: ${{ env.my_second_secret }}" >> secrets.txt
 
