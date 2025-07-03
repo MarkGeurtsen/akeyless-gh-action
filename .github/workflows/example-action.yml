@@ -25,7 +25,7 @@ jobs:
           access-type: jwt        
           dynamic-secrets: |
             - name: "/devops/docker"
-              output-name: "docker-dynamic-secret"
+              output-name: "docker"
       - name: Use Akeyless secret
         run: |
             echo "Step Outputs"
