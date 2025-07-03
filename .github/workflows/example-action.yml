@@ -21,7 +21,7 @@ jobs:
         id: fetch-dynamic-secrets
         uses: akeyless-community/akeyless-github-action@v1.1.2
         with:
-          access-id: <here>
+          access-id: p-8y57ihcmi4d3om
           access-type: jwt        
           dynamic-secrets: |
             - name: "/devops/docker"
