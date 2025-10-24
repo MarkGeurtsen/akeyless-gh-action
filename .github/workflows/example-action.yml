@@ -22,6 +22,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Obtain CLI
+        id: get-cli
+        run: |
+          
+          
       - name: Fetch dynamic secrets from Akeyless
         id: fetch-dynamic-secrets
         uses: akeyless-community/akeyless-github-action@v1.1.2
