@@ -35,12 +35,12 @@ jobs:
           access-id: p-8y57ihcmi4d3om
           access-type: jwt        
           dynamic-secrets: |
-            - name: "/devops/docker"
-              output-name: "docker"
+            - name: "/4-dynamic-secret/mysql"
+              output-name: "mysql"
       - name: Use Akeyless secret
         run: |
             echo "Step Outputs"
 
-            echo "dynamic secret: ${{ steps.fetch-dynamic-secrets.outputs.docker }}"
+            echo "dynamic secret: ${{ steps.fetch-dynamic-secrets.outputs.mysql }}"
             # echo "my_second_secret: ${{ env.my_second_secret }}" >> secrets.txt
 
