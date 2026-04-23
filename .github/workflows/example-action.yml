@@ -20,7 +20,7 @@ jobs:
       id-token: write
       contents: read
     runs-on: ubuntu-latest
-    environment: development
+    environment: production
 
     steps:
       - name: Obtain CLI
