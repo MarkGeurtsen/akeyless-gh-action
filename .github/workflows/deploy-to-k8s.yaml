@@ -41,4 +41,4 @@ jobs:
         run: |
             echo "Step Outputs"
 
-            echo "dynamic secret: ${{ steps.fetch-dynamic-secrets.outputs.eks }}"
+            echo '${{ steps.fetch-dynamic-secrets.outputs.eks }}' | jq .
