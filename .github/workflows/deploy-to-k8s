@@ -1,0 +1,44 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+# Controls when the workflow will run
+on:
+  workflow_call:
+    inputs:
+      caller:
+        required: true
+        type: string
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+
+  build:
+    permissions: 
+      id-token: write
+      contents: read
+    runs-on: ubuntu-latest
+    environment: development
+
+    steps:
+      - name: Obtain CLI
+        id: get-cli
+        run: |
+          
+          
+      - name: Fetch dynamic secrets from Akeyless
+        id: fetch-dynamic-secrets
+        uses: akeyless-community/akeyless-github-action@v1.1.2
+        with:
+          access-id: p-8y57ihcmi4d3om
+          access-type: jwt        
+          dynamic-secrets: |
+            - name: "/deployment-secrets/development/eks-producer"
+              output-name: "eks"
+      - name: Use Akeyless secret
+        run: |
+            echo "Step Outputs"
+
+            echo "dynamic secret: ${{ steps.fetch-dynamic-secrets.outputs.eks }}"
