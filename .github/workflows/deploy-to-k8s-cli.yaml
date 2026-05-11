@@ -1,4 +1,4 @@
-name: Akeyless Local Secret Test
+name: Akeyless Get K8s DS using CLI
 
 on:
   workflow_dispatch:
