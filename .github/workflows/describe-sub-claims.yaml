@@ -1,4 +1,4 @@
-name: Akeyless Local Secret Test
+name: Akeyless Describe Sub Claims
 
 on:
   workflow_dispatch:
