@@ -21,6 +21,8 @@ jobs:
       contents: read
     runs-on: ubuntu-latest
     environment: development
+    env:
+      ENV_NAME: development
 
     steps:
       - name: Obtain CLI
@@ -35,7 +37,7 @@ jobs:
           access-id: p-8y57ihcmi4d3om
           access-type: jwt        
           dynamic-secrets: |
-            - name: "/deployment-secrets/development/eks-producer"
+            - name: "/deployment-secrets/${{ env.ENV_NAME }}/eks-producer"
               output-name: "eks"
       - name: Use Akeyless secret
         run: |
