@@ -20,7 +20,5 @@ jobs:
         run: |
           curl -o akeyless https://akeyless-cli.s3.us-east-2.amazonaws.com/cli/latest/production/cli-linux-amd64
           chmod +x akeyless
-          ./akeyless describe-sub-claims \
-            --access-id p-y5bae7zhmim1om \
-            --access-type jwt \
-            --jwt "$JWT"
+          ./akeyless auth --access-type jwt --access-id p-y5bae7zhmim1om --jwt "$JWT"
+          ./akeyless describe-sub-claims
