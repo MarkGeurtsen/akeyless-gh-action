@@ -30,5 +30,5 @@ jobs:
           curl -o akeyless https://akeyless-cli.s3.us-east-2.amazonaws.com/cli/latest/production/cli-linux-amd64
           chmod +x akeyless
           ./akeyless --init
-          ./akeyless auth --access-type jwt --access-id p-y5bae7zhmim1om --jwt $GITHUB_ENV
+          ./akeyless auth --access-type jwt --access-id p-8y57ihcmi4d3om --jwt $GITHUB_ENV
           ./akeyless dynamic-secret get-value -n "/deployment-secrets/${{ env.ENV_NAME }}/eks-producer" --args=namespace=${{ env.NAMESPACE }}
