@@ -32,7 +32,7 @@ jobs:
           
       - name: Fetch dynamic secrets from Akeyless
         id: fetch-dynamic-secrets
-        uses: akeyless-community/akeyless-github-action@v1.1.2
+        uses: akeyless-community/akeyless-github-action@v1.1.9
         with:
           access-id: p-8y57ihcmi4d3om
           access-type: jwt        
