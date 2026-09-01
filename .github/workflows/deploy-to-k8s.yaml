@@ -39,7 +39,7 @@ jobs:
           dynamic-secrets: |
             - name: "/deployment-secrets/${{ env.ENV_NAME }}/eks-producer"
               output-name: "eks"
-              key: "status.token"
+              key: "status['token']"
 
       - name: Decode token
         run: |
