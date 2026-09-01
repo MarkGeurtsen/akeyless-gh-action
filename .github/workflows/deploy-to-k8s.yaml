@@ -39,6 +39,22 @@ jobs:
           dynamic-secrets: |
             - name: "/deployment-secrets/${{ env.ENV_NAME }}/eks-producer"
               output-name: "eks"
+
+      - name: Decode token
+        run: |
+          TOKEN=$(echo '${{ steps.fetch-dynamic-secrets.outputs.eks }}' | jq -r '.status.token')
+
+          if [[ "$TOKEN" == k8s-aws-v1.* ]]; then
+            echo "Token is an aws-iam-authenticator (STS) token, decoding presigned request:"
+            echo "${TOKEN#k8s-aws-v1.}" | base64 -d 2>/dev/null || echo "  (decode failed / non-standard padding)"
+          elif [[ "$TOKEN" == *.*.* ]]; then
+            echo "Token looks like a JWT, decoding payload:"
+            echo "$TOKEN" | cut -d '.' -f2 | base64 -d 2>/dev/null | jq . || echo "  (payload not valid JSON / padding issue)"
+          else
+            echo "Unrecognized token format, first 20 chars:"
+            echo "${TOKEN:0:20}..."
+          fi
+            
       - name: Use Akeyless secret
         run: |
             echo "Step Outputs"
